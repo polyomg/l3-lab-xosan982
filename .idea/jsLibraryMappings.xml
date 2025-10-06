@@ -2,5 +2,6 @@
 <project version="4">
   <component name="JavaScriptLibraryMappings">
     <file url="file://$PROJECT_DIR$/Lab3" libraries="{@picocss/pico}" />
+    <file url="file://$PROJECT_DIR$/Lab4" libraries="{halfmoon}" />
   </component>
 </project>
