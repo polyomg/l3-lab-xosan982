@@ -23,13 +23,4 @@ public class LayoutController {
         return "/staff-create";
     }
 
-    @RequestMapping("/contact")
-    public String contact(Model model) {
-        return "/contact";
-    }
-
-    @RequestMapping("/services")
-    public String services(Model model) {
-        return "/services";
-    }
 }

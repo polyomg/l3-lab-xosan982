@@ -5,27 +5,34 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import com.poly.lab3.entity.Staff;
 
+import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 
 @Controller
 public class StaffController {
+
     @RequestMapping("/staff")
     public String formStaff(Model model) {
+        Calendar calendar = Calendar.getInstance();
+        calendar.set(2007, Calendar.FEBRUARY, 20);
+        Date birthday = calendar.getTime();
+
         Staff staff = Staff.builder()
                 .id("S01")
                 .name("Nguyễn Thành An")
                 .photo("staff.png")
                 .gender(true)
-                .birthday(new Date(107, 6, 7))
-                .salary(120.5)
+                .birthday(birthday)
+                .salary(9876.54321)
                 .level(2)
                 .build();
+
         model.addAttribute("staff", staff);
-        return "/staff";
+        return "staff";
     }
 
-    @RequestMapping("staff/list")
+    @RequestMapping("/staff/list")
     public String list(Model model) {
         List<Staff> list = List.of(
                 Staff.builder().id("user1@gmail.com").name("nguyễn văn user1").level(0).build(),
@@ -36,11 +43,11 @@ public class StaffController {
                 Staff.builder().id("user6@gmail.com").name("nguyễn văn user6").level(0).build()
         );
         model.addAttribute("list", list);
-        return "/staff-list";
+        return "staff-list";
     }
 
-    @RequestMapping("staff/list-status")
-    public String list_status(Model model) {
+    @RequestMapping("/staff/list-status")
+    public String listStatus(Model model) {
         List<Staff> list = List.of(
                 Staff.builder().id("user1@gmail.com").name("nguyễn văn user1").level(0).build(),
                 Staff.builder().id("user2@gmail.com").name("nguyễn văn user2").level(1).build(),
@@ -50,12 +57,11 @@ public class StaffController {
                 Staff.builder().id("user6@gmail.com").name("nguyễn văn user6").level(0).build()
         );
         model.addAttribute("listST", list);
-        return "/list-status";
+        return "list-status";
     }
 
-
-    @RequestMapping("staff/list-controls")
-    public String list_controls(Model model) {
+    @RequestMapping("/staff/list-controls")
+    public String listControls(Model model) {
         List<Staff> list = List.of(
                 Staff.builder().id("user1@gmail.com").name("nguyễn văn user1").level(0).build(),
                 Staff.builder().id("user2@gmail.com").name("nguyễn văn user2").level(1).build(),
@@ -65,6 +71,6 @@ public class StaffController {
                 Staff.builder().id("user6@gmail.com").name("nguyễn văn user6").level(0).build()
         );
         model.addAttribute("listCT", list);
-        return "/list-controls";
+        return "list-controls";
     }
 }

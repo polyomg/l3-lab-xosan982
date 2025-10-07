@@ -2,21 +2,20 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Staff</title>
 </head>
 <body>
 <h2>Staff Information</h2>
-<table th:object="${staff}" >
+
+<table th:object="${staff}" border="1" cellpadding="8">
     <tr>
         <td>Staff Id</td>
         <td th:text="*{id}"></td>
     </tr>
     <tr>
         <td>Staff Name</td>
-        <td th:text="${#strings.capitalizeWords(name)}"></td>
+        <td th:text="${#strings.capitalizeWords(staff.name)}"></td>
     </tr>
     <tr>
         <td>Photo</td>
@@ -30,11 +29,11 @@
     </tr>
     <tr>
         <td>Birthday</td>
-        <td th:text="${#dates.format(birthday, 'dd-MM-yyyy')}"></td>
+        <td th:text="${#dates.format(staff.birthday, 'dd-MM-yyyy')}"></td>
     </tr>
     <tr>
         <td>Salary</td>
-        <td th:text="${#numbers.formatDecimal(salary, 0, 'COMMA', 2, 'POINT')}"></td>
+        <td th:text="${#numbers.formatDecimal(staff.salary, 0, 'COMMA', 2, 'POINT')}"></td>
     </tr>
     <tr>
         <td>Level</td>
@@ -48,5 +47,6 @@
         </td>
     </tr>
 </table>
+
 </body>
 </html>

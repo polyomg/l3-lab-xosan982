@@ -25,7 +25,7 @@ class StaffController {
     @PostMapping("/create/save")
     public String createSave(Model model, @Valid @ModelAttribute("staff") Staff staff, Errors errors,
                              @RequestParam(value = "photo_file", required = false) MultipartFile photoFile) {
-        // Gán tên ảnh được upload vào bean staff
+
         if (photoFile != null && !photoFile.isEmpty()) {
             staff.setPhoto(photoFile.getOriginalFilename());
         }
