@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="English">
+<head>
+    <title>Tính diện tích và chu vi hình chữ nhật</title>
+</head>
+<body>
+<h2>Tính diện tích và chu vi hình chữ nhật</h2>
+
+<form th:action="@{/hinhchunhat/tinh}" method="post">
+    <label>Chiều dài:</label>
+    <input type="number" name="chieuDai" required><br><br>
+
+    <label>Chiều rộng:</label>
+    <input type="number" name="chieuRong" required><br><br>
+
+    <label>Chiều cao:</label>
+    <input type="number" name="chieuCao" required><br><br>
+
+    <button type="submit">Tính</button>
+</form>
+
+<div th:if="${dienTich != null}">
+    <p>Diện tích: <span th:text="${dienTich}"></span></p>
+    <p>Chu vi: <span th:text="${chuVi}"></span></p>
+    <p>Thể tích: <span th:text="${theTich}"></span> </p>
+</div>
+</body>
+</html>
