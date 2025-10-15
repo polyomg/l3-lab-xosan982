@@ -1,6 +1,5 @@
-package com.poly.lab4.entity;
+package com.poly.lab5.entity;
 
-import jakarta.validation.Valid;
 import jakarta.validation.constraints.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -33,8 +32,7 @@ public class Staff {
     @Builder.Default
     @Min(value = 1000, message = "Lương tối thiếu phải là 1000")
     @NotNull(message = "Chưa nhập lương")
-    
-    private Double salary = 12345.6789;
+    private Double salary = 108312.7;
     @Builder.Default
     private Integer level = 0;
 }
